@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import { X, Calendar, Users, Clock, Mail, Phone, User, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useEffect, useState } from 'react';
 
 interface PrivateDiningModalProps {
   isOpen: boolean;

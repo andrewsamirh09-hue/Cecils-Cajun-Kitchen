@@ -1,29 +1,34 @@
+import React from 'react';
 import { MapPin, Clock, Phone, Navigation } from 'lucide-react';
 
 export default function LocationHours() {
+  const address = "120 W 1st St, DeRidder, LA 70634";
+  const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+
   return (
     <section id="location" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-cajun-bg rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col lg:flex-row">
           
           {/* Left: Map & Address */}
-          <div className="lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-gray-200">
-            {/* Placeholder for actual Google Maps iframe */}
-            <img 
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop" 
-              alt="Map location" 
-              className="absolute inset-0 w-full h-full object-cover opacity-80"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute bottom-6 left-6 right-6 bg-white p-6 rounded-2xl shadow-xl">
+          <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full bg-gray-200">
+            <iframe
+              title="Cecil's Cajun Kitchen Location"
+              src={mapUrl}
+              className="absolute inset-0 w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div className="absolute bottom-6 left-6 right-6 bg-white p-6 rounded-2xl shadow-xl hidden sm:block">
               <div className="flex items-start gap-4">
                 <div className="bg-cajun-orange/20 p-3 rounded-full text-cajun-orange">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-display text-xl mb-1">Cecil's Cajun Kitchen</h3>
-                  <p className="text-gray-600 mb-2">120 W 1st St<br/>DeRidder, LA 70634</p>
+                  <h3 className="font-display text-xl mb-1 text-cajun-charcoal">Cecil's Cajun Kitchen</h3>
+                  <p className="text-gray-600 mb-2">{address}</p>
                   <p className="text-sm text-gray-500 italic">Ample street parking available.</p>
                 </div>
               </div>
@@ -77,7 +82,12 @@ export default function LocationHours() {
               <a href="tel:3374602002" className="bg-cajun-charcoal text-white px-6 py-3 rounded-full font-bold text-center hover:bg-black transition-colors flex items-center justify-center gap-2">
                 <Phone size={18} /> Call Ahead
               </a>
-              <a href="#" className="bg-cajun-orange text-cajun-black px-6 py-3 rounded-full font-bold text-center hover:bg-cajun-yellow transition-colors flex items-center justify-center gap-2">
+              <a 
+                href={directionsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-cajun-orange text-cajun-black px-6 py-3 rounded-full font-bold text-center hover:bg-cajun-yellow transition-colors flex items-center justify-center gap-2"
+              >
                 <Navigation size={18} /> Get Directions
               </a>
             </div>

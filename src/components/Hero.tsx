@@ -1,3 +1,4 @@
+import React from 'react';
 import { Star, MapPin, Phone, Clock, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 

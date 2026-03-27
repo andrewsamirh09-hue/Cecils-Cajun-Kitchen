@@ -1,6 +1,9 @@
+import React from 'react';
 import { Phone, MapPin } from 'lucide-react';
 
 export default function CtaStrip() {
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("120 W 1st St, DeRidder, LA 70634")}`;
+
   return (
     <section className="bg-cajun-orange py-16">
       <div className="max-w-4xl mx-auto px-4 text-center">
@@ -14,7 +17,12 @@ export default function CtaStrip() {
           <a href="tel:3374602002" className="bg-cajun-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition-all shadow-xl flex items-center justify-center gap-2">
             <Phone size={20} /> Call Now
           </a>
-          <a href="#" className="bg-white text-cajun-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-xl flex items-center justify-center gap-2">
+          <a 
+            href={directionsUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-white text-cajun-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all shadow-xl flex items-center justify-center gap-2"
+          >
             <MapPin size={20} /> Get Directions
           </a>
         </div>
